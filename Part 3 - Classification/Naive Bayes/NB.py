@@ -19,10 +19,10 @@ sc_x = StandardScaler()
 x_train = sc_x.fit_transform(x_train)
 x_test = sc_x.transform(x_test)
 
-#fitting Kernel Svm model to the traning test
+#fitting Naive Byes model to the traning test
 
-from sklearn.svm import SVC
-classifier = SVC(kernel = 'rbf',random_state = 0)
+from sklearn.naive_bayes import GaussianNB
+classifier = GaussianNB()
 classifier.fit(x_train, y_train)
 
 #predicting the test set result
@@ -45,7 +45,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Kernel SVM (Training set)')
+plt.title('Naive Bayes (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -63,7 +63,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Kernel SVM (Training set)')
+plt.title('Naive Bayes(Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
